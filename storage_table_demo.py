@@ -136,12 +136,12 @@ raw_input('Press Enter to continue...')
 # Structuring queries like this improves performance as your application scales up and keeps the queries efficient
 items = table_service.query_entities('itemstable', filter="PartitionKey eq 'cardealer'", select='make,model,year,color,price')
 for item in items:
-    print('Car: ' + item.year + ' ' + item.color + ' ' + item.make + ' ' + item.model)
+    print('Car: ' + str(item.year) + ' ' + item.color + ' ' + item.make + ' ' + item.model)
     print('Price: ' + str(item.price) + '\n')
 
 items = table_service.query_entities('itemstable', filter="PartitionKey eq 'coffeestore'", select='brand,flavor,cupsize,price')
 for item in items:
-    print('Coffee : Cup of ' + item.cupsize + ' ' + item.brand + ' ' item.flavor)
+    print('Coffee: Cup of ' + item.cupsize + ' ' + item.brand + ' ' + item.flavor)
     print('Price: ' + str(item.price) + '\n')
 
 time.sleep(1)
